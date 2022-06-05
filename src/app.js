@@ -35,7 +35,7 @@ async function getData(key,mood){
 getData(keyUnsplah,'storm');
 
 function addDataBase(data){
-    fetch('./script_php/like.php', {
+    fetch('./script/like.php', {
         method: 'POST',
         body: data,
     })
