@@ -15,7 +15,7 @@
   \********************/
 /***/ (() => {
 
-eval("const img = document.querySelector('img');\n\nlet keyUnsplah = \"6BWyhvXSEyO3egDZ8E8UXW01I4-pElsxeaTMjx8ZN4Q\";\nlet url =`https://api.unsplash.com/photos/?client_id=${keyUnsplah}`;\n\n// fetch await data from unsplash\n\n// fecth data from unsplash\nfetch(url)\n.then((response) =>{\n    return response.json();\n}\n)\n.then((data) => {\n    let src = data[0].urls.regular;\n    img.setAttribute('src', src);\n    let alt = data[0].alt_description;\n    img.setAttribute('alt', alt);\n\n\n\n\n})\n\n\n//# sourceURL=webpack://api-unsplash/./src/app.js?");
+eval("const img = document.querySelector('img');\n\nlet keyUnsplah = \"DNOXP05XZ1QlAN2NxzLND4N6Gt2J5iSkIKnEtiJ_hAw\";\n\n\nasync function getData(key,mood){\n    let url =`https://api.unsplash.com/search/photos?query=${mood}&client_id=${key}`;\n    const response = await fetch(url);\n    const data = await response.json();\n    let imgUrl = data.results[Math.floor(Math.random() * data.results.length)].urls.regular;\n    img.setAttribute('src', imgUrl);\n}\n\ngetData(keyUnsplah,'night city');\n\n//# sourceURL=webpack://api-unsplash/./src/app.js?");
 
 /***/ })
 

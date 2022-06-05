@@ -1,20 +1,14 @@
 const img = document.querySelector('img');
 
-let keyUnsplah = "6BWyhvXSEyO3egDZ8E8UXW01I4-pElsxeaTMjx8ZN4Q";
-let url =`https://api.unsplash.com/photos/?client_id=${keyUnsplah}`;
+let keyUnsplah = "DNOXP05XZ1QlAN2NxzLND4N6Gt2J5iSkIKnEtiJ_hAw";
 
-// fetch await data from unsplash
 
-// fecth data from unsplash
-fetch(url)
-.then((response) =>{
-    return response.json();
+async function getData(key,mood){
+    let url =`https://api.unsplash.com/search/photos?query=${mood}&client_id=${key}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    let imgUrl = data.results[Math.floor(Math.random() * data.results.length)].urls.regular;
+    img.setAttribute('src', imgUrl);
 }
-)
-.then((data) => {
-    let src = data[0].urls.regular;
-    img.setAttribute('src', src);
-    let alt = data[0].alt_description;
-    img.setAttribute('alt', alt);
 
-})
+getData(keyUnsplah,'night city');
