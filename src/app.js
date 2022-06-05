@@ -7,8 +7,8 @@ async function getData(key,mood){
     let url =`https://api.unsplash.com/search/photos?query=${mood}&client_id=${key}`;
     const response = await fetch(url);
     const data = await response.json();
-    let imgUrl = data.results[Math.floor(Math.random() * data.results.length)].urls.regular;
+    let imgUrl = data.results[Math.floor(Math.random() * data.results.length)].urls.full;
     img.setAttribute('src', imgUrl);
 }
 
-getData(keyUnsplah,'night city');
+getData(keyUnsplah,'city');
