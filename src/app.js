@@ -1,7 +1,6 @@
 const img = document.querySelector('img');
-
+const like = document.querySelector('.fa-heart');
 let keyUnsplah = "DNOXP05XZ1QlAN2NxzLND4N6Gt2J5iSkIKnEtiJ_hAw";
-
 
 async function getData(key,mood){
     let url =`https://api.unsplash.com/search/photos?query=${mood}&client_id=${key}`;
@@ -9,6 +8,9 @@ async function getData(key,mood){
     const data = await response.json();
     let imgUrl = data.results[Math.floor(Math.random() * data.results.length)].urls.full;
     img.setAttribute('src', imgUrl);
+    like.addEventListener('click', () => {
+        localStorage.setItem('like', imgUrl);
+    })
 }
 
 getData(keyUnsplah,'city');
