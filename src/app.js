@@ -17,56 +17,12 @@ function getDay(){
     return ` le ${dayName} ${day} ${monthName} ${year}`;
 }
 
-// async function getData(key,mood){
-//     let url =`https://api.unsplash.com/search/photos?query=${mood}&client_id=${key}`;
-//     const response = await fetch(url);
-//     const data = await response.json();
-//     let imgUrl = data.results[Math.floor(Math.random() * data.results.length)].urls.full;
-//     img.setAttribute('src', imgUrl);
-
-//     // get link of image
-
-//     like.addEventListener('click', () => {
-//         let data = new FormData();
-//         data.append('url', 'dfsdf');
-//         data.append('mood', "dsf");
-//         data.append('date', "sdf");
-
-//         fetch('./script/like.php', {
-//             method: 'POST',
-//             body: data,
-//         })
-//         .then((res)=>{
-//             return res.json();
-//         })
-//         .then((data)=>{
-//             console.log(data);
-//         })
-//     })
-// }
-
-// getData(keyUnsplah,'storm');
-
-// function addDataBase(data){
-//     fetch('./script/like.php', {
-//         method: 'POST',
-//         body: data,
-//     })
-//     .then((res)=>{
-//         return res.json();
-//     })
-//     .then((data)=>{
-//         console.log(data);
-//     })
-// }
-
-function tmp() {
-    fetch(`https://api.unsplash.com/search/photos?query=london&client_id=${keyUnsplah}`)
+function getRandomImg(key, mood) {
+    fetch(`https://api.unsplash.com/search/photos?query=${mood}&client_id=${key}`)
     .then((res)=>{
         return res.json();
     })
     .then((data)=>{
-        console.log(data);
         // get random image from unsplash
         let imgUrl = data.results[Math.floor(Math.random() * data.results.length)].urls.full;
         img.setAttribute('src', imgUrl);
@@ -74,7 +30,7 @@ function tmp() {
         like.addEventListener('click', () => {
             const el = new FormData();
             el.append('url', JSON.stringify(imgUrl));
-            el.append('mood','test');
+            el.append('mood', mood);
             el.append('date', JSON.stringify(getDay()));
 
             const req = {
@@ -93,16 +49,4 @@ function tmp() {
     })
 }
 
-tmp();
-
-
-
-    fetch('./script/database.json')
-    .then((res)=>{
-        return res.json();
-    })
-    .then((data)=>{
-        console.log(data);
-    })
-//  function get random number
-
+getRandomImg(keyUnsplah, 'Architecture');
