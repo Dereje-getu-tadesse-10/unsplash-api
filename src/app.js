@@ -45,7 +45,7 @@ function getRandomImg(keyUnsplah){
                 body: el
             };
 
-            fetch('./script/like.php', req)
+            fetch('./bdd-script/like.php', req)
             .then((res)=>{
                 return res.json();
             })
