@@ -2,11 +2,10 @@
 
 const img = document.querySelector('img');
 const like = document.querySelector('.fa-heart');
-let keyUnsplah = "o3VmNfvsRnbUKRj_m5rsjK9sJ2YhSJ1NWkbtdC7SEXo";
+// let keyUnsplah = "4Gf87x2V7x5yOXU3Giwc7H_zrZDB84C5reml_8Cb14c";
 
 // get day formated
 
-// get day fomated with name day and month name and year name
 function getDay(){
     let date = new Date();
     let day = date.getDate();
@@ -17,8 +16,7 @@ function getDay(){
     return ` le ${dayName} ${day} ${monthName} ${year}`;
 }
 
-function getRandomImg(keyUnsplah = "o3VmNfvsRnbUKRj_m5rsjK9sJ2YhSJ1NWkbtdC7SEXo"){
-    let suer = "@brookecagle";
+function getRandomImg(keyUnsplah){
     fetch(`https://api.unsplash.com/photos/random/`,{
         method: 'GET',
         headers: {
@@ -58,4 +56,4 @@ function getRandomImg(keyUnsplah = "o3VmNfvsRnbUKRj_m5rsjK9sJ2YhSJ1NWkbtdC7SEXo"
     })
 }
 
-getRandomImg(keyUnsplah);
+// getRandomImg(keyUnsplah);
