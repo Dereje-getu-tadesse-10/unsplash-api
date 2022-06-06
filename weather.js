@@ -13,10 +13,10 @@ function weather(key){
       .then((data)=>{
         console.log(data)
         city.textContent = data.name;
-        temp.textContent = data.main.temp;
+        temp.textContent = data.main.temp.toFixed(0);
         description.textContent = data.weather[0].description;
-        highTemp.textContent = `H:${data.main.temp_max}°`;
-        minTemp.textContent = `M:${data.main.temp_min}°`;
+        highTemp.textContent = `H:${data.main.temp_max.toFixed(0)}°`;
+        minTemp.textContent = `M:${data.main.temp_min.toFixed(0)}°`;
       })
 }
 

@@ -4,6 +4,7 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
+    font-family: 'Poppins', sans-serif;
 }
 body{
     overflow: hidden;
@@ -18,7 +19,6 @@ img{
     height: 100%;
     width: 100%;
     object-fit: cover;
-    background-image: url('1200-L-manchester-united-mourinho-prt-tenter-un-incroyable-coup-avec-cristiano-ronaldo.jpg');
     z-index: -1;
 }
 
@@ -61,7 +61,7 @@ img{
     align-items: center;
     gap: 5px;
     font-size: 1.2rem;
-    font-weight: bold;
+    /* font-weight: bold; */
     color: #fff;
 }
 
