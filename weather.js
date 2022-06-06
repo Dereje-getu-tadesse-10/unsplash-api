@@ -1,14 +1,24 @@
-function weather(){
-    fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/besan%C3%A7on?unitGroup=metric&include=days%2Ccurrent%2Chours&key=ZSTE8F38YSQMR7KY73KEDQ245&contentType=json", {
-        "method": "GET",
-    })
+let city = document.querySelector('.city');
+let temp = document.querySelector('.current-temp');
+let description = document.querySelector('.description');
+let highTemp = document.querySelector('.temp-max');
+let minTemp = document.querySelector('.temp-min');
+
+function weather(key){
+
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=besançon&appid=${key}&units=metric&lang=fr`)
       .then((response) => {
        return response.json()
     })
       .then((data)=>{
-          console.log(data)
+        console.log(data)
+        city.textContent = data.name;
+        temp.textContent = data.main.temp;
+        description.textContent = data.weather[0].description;
+        highTemp.textContent = `H:${data.main.temp_max}°`;
+        minTemp.textContent = `M:${data.main.temp_min}°`;
       })
 }
 
 
-weather()
+weather("6bb83d7cf2b4aee765f7bd3f53260c22");
