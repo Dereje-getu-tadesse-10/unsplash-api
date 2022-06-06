@@ -2,7 +2,7 @@
 
 const img = document.querySelector('img');
 const like = document.querySelector('.fa-heart');
-let keyUnsplah = "DNOXP05XZ1QlAN2NxzLND4N6Gt2J5iSkIKnEtiJ_hAw";
+let keyUnsplah = "o3VmNfvsRnbUKRj_m5rsjK9sJ2YhSJ1NWkbtdC7SEXo";
 
 // get day formated
 
@@ -17,20 +17,29 @@ function getDay(){
     return ` le ${dayName} ${day} ${monthName} ${year}`;
 }
 
-function getRandomImg(key, mood) {
-    fetch(`https://api.unsplash.com/search/photos?query=${mood}&client_id=${key}`)
+function getRandomImg(keyUnsplah = "o3VmNfvsRnbUKRj_m5rsjK9sJ2YhSJ1NWkbtdC7SEXo"){
+    let suer = "@brookecagle";
+    fetch(`https://api.unsplash.com/photos/random/`,{
+        method: 'GET',
+        headers: {
+            Authorization: `Client-ID ${keyUnsplah}`,
+        }
+    })
     .then((res)=>{
+        console.log(res);
         return res.json();
     })
     .then((data)=>{
-        // get random image from unsplash
-        let imgUrl = data.results[Math.floor(Math.random() * data.results.length)].urls.full;
-        img.setAttribute('src', imgUrl);
-        // get link of image
+
+        console.log(data);
+        img.src = data.urls.regular;
+        img.alt = data.alt_description;
+        let link = img.src;
+
         like.addEventListener('click', () => {
             const el = new FormData();
-            el.append('url', JSON.stringify(imgUrl));
-            el.append('mood', mood);
+            el.append('url', JSON.stringify(link));
+            el.append('mood', 'happy');
             el.append('date', JSON.stringify(getDay()));
 
             const req = {
@@ -49,4 +58,4 @@ function getRandomImg(key, mood) {
     })
 }
 
-getRandomImg(keyUnsplah, 'Architecture');
+getRandomImg(keyUnsplah);
