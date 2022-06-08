@@ -11,7 +11,7 @@ function weather(key){
        return response.json()
     })
       .then((data)=>{
-        console.log(data)
+        // console.log(data)
         city.textContent = data.name;
         temp.textContent = data.main.temp.toFixed(0);
         description.textContent = data.weather[0].description;

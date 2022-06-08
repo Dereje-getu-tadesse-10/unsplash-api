@@ -61,11 +61,9 @@ img{
     align-items: center;
     gap: 5px;
     font-size: 1.2rem;
-    /* font-weight: bold; */
     color: #fff;
 }
 
-/* description */
 .currently-description{
     font-size: 1.1rem;
     color: #fff;
@@ -86,7 +84,27 @@ img{
     transform: translate(-50%, -50%);
     cursor: pointer;
     color: red;
+}
+
+.fa-solid{
     font-size: 2rem;
+}
+
+.all-like{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+.fa-book-heart{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: red;
 }
 
 @media only screen and (min-width: 270px){
@@ -94,5 +112,11 @@ img{
         position: absolute;
         bottom: 20px;
         left: 20px;
+        background-color: aliceblue;
+        z-index: 999;
+    }
+    .all-like{
+        bottom: 20px;
+        right: 20px;
     }
 }

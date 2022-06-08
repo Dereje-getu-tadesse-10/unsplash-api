@@ -16,6 +16,8 @@ $data_arrays = json_decode($data_array, true);
 $data_arrays[] = $data;
 $new_data = json_encode($data_arrays, JSON_PRETTY_PRINT);
 
+
+
 if (!file_put_contents($file_name, $new_data)) {
     echo "success";
 } else {
