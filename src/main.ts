@@ -6,13 +6,12 @@ const like = document.querySelector('.fa-heart') as HTMLElement;
 let keyUnsplash : string = "o3VmNfvsRnbUKRj_m5rsjK9sJ2YhSJ1NWkbtdC7SEXo";
 
 
-function getDay(){
-    let date = new Date();
-    let day = date.getDay();
-    let month = date.getMonth() +1;
-    let year = date.getFullYear();
-    let dayName = date.toLocaleString('fr-FR', { weekday: 'long' });
-    let monthName = date.toLocaleString('fr-FR', { month: 'long' });
+function getDay():string{
+    let date  = new Date();
+    let day : number = date.getDay();
+    let year : number = date.getFullYear();
+    let dayName : string = date.toLocaleString('fr-FR', { weekday: 'long' });
+    let monthName : string = date.toLocaleString('fr-FR', { month: 'long' });
     let dateString : string | number = `Le ${dayName} ${day} ${monthName} ${year}`;
     return dateString;
 }
@@ -26,9 +25,9 @@ function getRandomImg(key: string){
     .then((data) =>{
         img.src = data.urls.regular;
         img.alt = data.alt_description;
-        let link = img.src;
+        let link : string = img.src;
         img.id = makeId();
-        let id = img.id;
+        let id : string = img.id;
 
         // let da = {id, link};
 
@@ -39,8 +38,6 @@ function getRandomImg(key: string){
             el.append('link', link);
             el.append('mood', 'happy');
             el.append('date', getDay());
-
-            console.log('el')
 
             const req = {
                 method: 'POST',
@@ -55,14 +52,14 @@ function getRandomImg(key: string){
                 console.log(data);
 
             })
-    });
+        });
     })
 
 }
 
-function makeId(){
+function makeId():string{
     let id :string = "";
-    let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let possible :string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     for(let i = 0; i < 5; i++){
         id += possible.charAt(Math.floor(Math.random() * possible.length));
     }

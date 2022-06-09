@@ -5,7 +5,6 @@ let keyUnsplash = "o3VmNfvsRnbUKRj_m5rsjK9sJ2YhSJ1NWkbtdC7SEXo";
 function getDay() {
     let date = new Date();
     let day = date.getDay();
-    let month = date.getMonth() + 1;
     let year = date.getFullYear();
     let dayName = date.toLocaleString('fr-FR', { weekday: 'long' });
     let monthName = date.toLocaleString('fr-FR', { month: 'long' });
@@ -32,7 +31,6 @@ function getRandomImg(key) {
             el.append('link', link);
             el.append('mood', 'happy');
             el.append('date', getDay());
-            console.log('el');
             const req = {
                 method: 'POST',
                 body: el
