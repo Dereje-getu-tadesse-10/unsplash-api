@@ -1,4 +1,4 @@
-"use strict";
+import { weather } from './weather.js';
 const img = document.querySelector('img');
 const like = document.querySelector('.fa-heart');
 let keyUnsplash = "o3VmNfvsRnbUKRj_m5rsjK9sJ2YhSJ1NWkbtdC7SEXo";
@@ -56,3 +56,4 @@ function makeId() {
     return id;
 }
 getRandomImg(keyUnsplash);
+weather("6bb83d7cf2b4aee765f7bd3f53260c22");

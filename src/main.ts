@@ -1,7 +1,10 @@
+import { weather } from './weather.js';
+
 const img = document.querySelector('img') as HTMLImageElement;
 const like = document.querySelector('.fa-heart') as HTMLElement;
 
 let keyUnsplash : string = "o3VmNfvsRnbUKRj_m5rsjK9sJ2YhSJ1NWkbtdC7SEXo";
+
 
 function getDay(){
     let date = new Date();
@@ -67,3 +70,5 @@ function makeId(){
 }
 
 getRandomImg(keyUnsplash);
+
+weather("6bb83d7cf2b4aee765f7bd3f53260c22");
